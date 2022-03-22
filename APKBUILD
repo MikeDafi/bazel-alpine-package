@@ -11,13 +11,11 @@ depends="bash openjdk8 libarchive zip unzip"
 # coreutils can be removed as a make dependency once expr in busybox is compatible with the BSD version, see following bug reports:
 # Patch bazel: https://github.com/bazelbuild/bazel/issues/4055
 # https://bugs.alpinelinux.org/issues/8121
-makedepends="coreutils git linux-headers protobuf python"
+makedepends="coreutils git linux-headers protobuf python2 python3"
 options="!distcc !strip !check"
 source="https://github.com/bazelbuild/bazel/releases/download/${pkgver}/bazel-${pkgver}-dist.zip
         https://github.com/bazelbuild/bazel/releases/download/${pkgver}/bazel-${pkgver}-dist.zip.sig"
 
-sha512sums="9379878a834d105a47a87d3d7b981852dd9f64bc16620eacd564b48533e169a7 bazel-${pkgver}-dist.zip
-3e12a12a0a8a72e226451f1454f7a0e19b56d94cb03440e196657059b9687792ad030e3be1af34ee35883d5ee54027f5924af1b8fe9e71ce90e76abed7a2213f  bazel-${pkgver}-dist.zip.sig"
 
 build() {
   export JAVA_HOME=/usr/lib/jvm/default-jvm
@@ -36,3 +34,5 @@ package() {
 }
 # vim:set ts=2 sw=2 et:
 
+sha512sums="67011c3a045c0fd74cdcb98eef1c3ead6902a3bd65a629fe49911f9dbb4c39508bd91eb63c1fae68284136ad4994afb42a01c7f10983614e432f8be22a1c566e  bazel-2.2.0-dist.zip
+403b5f68f9bb035423b9532dc7c4b1d7459e2e853fbc3bed9a6bb9030b5a22796f6d2b4e8928f4427fb7517dfa12f15e016899036f3d1c5ef54ade172f7a3db4  bazel-2.2.0-dist.zip.sig"
